@@ -1,4 +1,3 @@
-# Библиотеки
 import keyboard
 import mouse
 import time
@@ -6,7 +5,6 @@ import locale
 import os
 
 
-# Перевод
 def translate(text, lang="en"):
     if lang == "en":
         return text
@@ -31,29 +29,23 @@ def translate(text, lang="en"):
         return text
 
 
-# Очистка консоли
 def clear_console():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-# Выбор языка
 print(translate("Start", locale.getdefaultlocale()[0]))
 lang = input("Choose language: (ru/en)\n")
 if lang.lower() not in ["ru", "en"]:
     print(translate("Error"))
     exit()
 
-# Очищаем консоль перед заставкой
 clear_console()
 
-# Заставка
 print(translate("Zal3n AC", lang))
 time.sleep(3)
 
-# Статус автокликера
 Status = False
 
-# Сохранение настроек автокликера
 hot_key = input(translate("What key do you want to use to activate it?\n", lang))
 mouse_selector = input(
     translate("Which mouse button should you click?\nLeft - 1\nRight - 2\n", lang)
@@ -69,14 +61,12 @@ else:
     print(translate("Error", lang))
     exit()
 
-# Вывод сообщения о сохранении настроек
 if lang == "ru":
     print(f"Настройки сохранены!\nДля запуска нажмите {hot_key}")
 else:
     print(translate(f"Settings saved!\nTo start, press {hot_key}", lang))
 
 
-# Обработчик кликера
 def clicker():
     global Status
     if Status:
